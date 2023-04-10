@@ -1,3 +1,7 @@
+body {
+	background-color: #CD5C5C;
+}
+
 .caixa {
 	display: flex;
 	flex-direction: column;
@@ -13,7 +17,7 @@
 }
 
 .entrada {
-	padding: 10px 15px;
+	padding: 15px;
 	width: 20%;
 	font-size: 15px;
 	border-width: 1px;
@@ -29,5 +33,29 @@
 	border-width: 1px;
 	font-weight: bolder;
 	border-radius: 5px;
+	border-style: solid;
 	cursor: pointer;
+	background-color: #FFFFFF;
+	transition: 1s;
+}
+
+.botao:hover {
+	transform: scale(1.2) rotate(5deg);
+	background-color: #F0F8FF;
+}
+
+@media screen and (min-width: 200px) and (max-width: 500px) {
+	.botao, .entrada {
+		width: auto;
+	}
+}
+
+@media screen and (min-width: 501px) and (max-width: 1240px) {
+	.botao {
+		width: 20%;
+	}
+
+	.entrada {
+		width: 30%;
+	}
 }
