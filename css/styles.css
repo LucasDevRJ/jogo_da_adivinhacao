@@ -14,8 +14,20 @@
 
 .entrada {
 	padding: 10px 15px;
+	width: 20%;
 	font-size: 15px;
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.botao {
+	padding: 15px 20px;
+	width: 14%;
+	font-size: 17px;
+	border-width: 1px;
+	font-weight: bolder;
+	border-radius: 5px;
+	cursor: pointer;
 }
