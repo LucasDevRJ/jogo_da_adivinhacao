@@ -1,24 +1,33 @@
 function armazenaValores() {
 	var campoNumero = document.getElementById("entrada");
-	var mensagem = document.getElementById("mensagem");
 	var resposta = document.getElementById("resposta");
-
 	var numeroDigitado = campoNumero.value;
 
-	sorteiaNumero(mensagem, resposta, numeroDigitado);
+	verificaValorDigitado(resposta, numeroDigitado);
 }
 
-function sorteiaNumero(mensagem, resposta, numeroDigitado) {
+function sorteiaNumero(numeroDigitado, valorValido, resposta) {
 	var numeroSorteado = Math.random() * 10;
 	numeroSorteado = Math.round(numeroSorteado);
-
-	verificaAcertoOuErro(mensagem, resposta, numeroDigitado, numeroSorteado);
+	verificaAcertoOuErro(numeroSorteado, numeroDigitado);
 }
 
-function verificaAcertoOuErro(mensagem, resposta, numeroDigitado, numeroSorteado) {
+function verificaAcertoOuErro(numeroSorteado, numeroDigitado) {
 	if (numeroDigitado == numeroSorteado) {
-		mensagem.textContent = "Parabéns! Você acertou o número sorteado."
+		resposta.textContent = "Parabéns! Você acertou o número sorteado."
 	} else {
-		mensagem.textContent = "Errou! O número sorteado é " + numeroSorteado;
+		resposta.textContent = "Errou! O número sorteado é " + numeroSorteado;
+	}
+}
+
+function verificaValorDigitado(resposta, numeroDigitado) {
+	if (numeroDigitado.length == 0) {
+		resposta.textContent = "Digite algum número!";
+	} else if (isNaN(numeroDigitado)) {
+		resposta.textContent = "Digite somente números!";
+	} else if (numeroDigitado < 0 || numeroDigitado > 10) {
+		resposta.textContent = "Digite somente números entre 0 a 10!";
+	} else {
+		sorteiaNumero(numeroDigitado, resposta);
 	}
 }
