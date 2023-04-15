@@ -1,20 +1,21 @@
 var respostaChances = document.getElementById("numero-chances");
+var paragrafoNumeroDigitado = document.getElementById("numero-digitado");
 var chances = 3;
+
+respostaChances.textContent = "Você tem " + chances + " chances!";
 
 console.log(respostaChances);
 
 function armazenaValores() {
+	var campoNumero = document.getElementById("entrada");
+	var resposta = document.getElementById("resposta");
+	var numeroDigitado = campoNumero.value;
+
 	if (chances > 0) {
 		console.log(chances);
-		var campoNumero = document.getElementById("entrada");
-		var resposta = document.getElementById("resposta");
-		var numeroDigitado = campoNumero.value;
-
-		respostaChances.textContent = "Você tem " + chances + " chances!";
-
 		verificaValorDigitado(resposta, numeroDigitado);
 	} else {
-		var botao = document.getElementById("botao").style.display = "none";
+		removeElementos(campoNumero, resposta, numeroDigitado);
 	}
 }
 
@@ -44,4 +45,12 @@ function verificaValorDigitado(resposta, numeroDigitado) {
 	} else {
 		sorteiaNumero(numeroDigitado, resposta);
 	}
+}
+
+function removeElementos(campoNumero, resposta) {
+	var botao = document.getElementById("botao").style.display = "none";
+	campoNumero.style.display = "none";
+	resposta.style.display = "none";
+	respostaChances.style.display = "none";
+	paragrafoNumeroDigitado.style.display = "none";
 }
